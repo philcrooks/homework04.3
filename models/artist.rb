@@ -25,7 +25,7 @@ class Artist
   end
 
   def save()
-    DbArtist.save(self)
+    DbArtist.insert(self)
   end
 
   def update()

@@ -14,7 +14,7 @@ class DbArtist
     SqlRunner.run( sql )
   end
 
-  def self.save ( artist )
+  def self.insert ( artist )
     sql_fields = "INSERT INTO artists ("
     sql_values = ") VALUES ("
     artist_hash = to_hash( artist )

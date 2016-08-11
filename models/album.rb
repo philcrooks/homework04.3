@@ -31,7 +31,7 @@ class Album
   end
 
   def save()
-    DbAlbum.save(self)
+    DbAlbum.insert(self)
   end
 
   def update( id )

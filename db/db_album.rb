@@ -13,7 +13,7 @@ class DbAlbum
     SqlRunner.run( sql )
   end
 
-  def self.save ( album )
+  def self.insert ( album )
     sql_fields = "INSERT INTO albums ("
     sql_values = ") VALUES ("
     album_hash = to_hash( album )
