@@ -1,0 +1,11 @@
+<form action="<%= @action %>" method="post">
+  <table>
+    <tr>
+      <td><label for="name">Name:</label></td>
+      <td><input type="text" name="name" <%= "value=\"#{@artist.name}\"" if @artist.name %>></td>
+    </tr>
+    <tr>
+      <td align="right" colspan="2"><input type="submit" value="<%= @button_text %>" ></td>
+    </tr>
+  </table>
+</form>

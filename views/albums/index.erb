@@ -1,0 +1,5 @@
+<table>
+<% @albums.each do | album | %>
+<tr><td><%= album.name %></td><td><a href="/albums/<%= album.id %>">More info</a></td></tr>
+<% end %>
+</table>

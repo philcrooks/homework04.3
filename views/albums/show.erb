@@ -1,0 +1,7 @@
+<p>The album entitled "<%= @album.name %>" was recorded by <%= @artist.name %> and released in <%= @album.year %>.</p>
+<p>
+  <a href="/albums/<%= @album.id %>/edit">Edit Album</a>
+  <form action="/albums/<%= @album.id %>/delete" method="post">
+    <input type="submit" value="Delete Album" >
+  </form>
+</p>
