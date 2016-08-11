@@ -31,11 +31,11 @@ class Album
   end
 
   def save()
-    DbAlbum.insert(self)
+    DbAlbum.insert( self )
   end
 
-  def update( id )
-    DbAlbum.update(self)
+  def update()
+    DbAlbum.update( self )
   end
 
 end
