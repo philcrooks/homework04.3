@@ -1,24 +1,25 @@
-require_relative('../db/db_album')
+require_relative('../db/db_interface')
 
 class Album
+  TABLE = "albums"
 
   def self.all()
-    albums = DbAlbum.select() 
+    albums = DbInterface.select( TABLE ) 
     return albums.map { |a| Album.new( a ) }
   end
 
   def self.by_id ( id )
-    albums = DbAlbum.select( id ) 
+    albums = DbInterface.select( TABLE, id ) 
     return Album.new(albums.first)
   end
 
   def self.by_artist( id )
-    albums = DbAlbum.select( id, "artist_id" ) 
+    albums = DbInterface.select( TABLE, id, "artist_id" ) 
     return albums.map { |a| Album.new( a ) }
   end
 
   def self.destroy( id )
-    DbAlbum.delete( id )
+    DbInterface.delete( DB_NAME, id )
   end
 
   attr_reader( :id, :name, :year, :artist_id )
@@ -31,11 +32,11 @@ class Album
   end
 
   def save()
-    DbAlbum.insert( self )
+    DbInterface.insert( TABLE, self )
   end
 
   def update()
-    DbAlbum.update( self )
+    DbInterface.update( TABLE, self )
   end
 
 end

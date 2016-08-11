@@ -1,20 +1,20 @@
-require_relative( '../db/db_artist' )
-require_relative( '../models/album' )
+require_relative( '../db/db_interface' )
 
 class Artist
+  TABLE = "artists"
 
   def self.all()
-    artists = DbArtist.select()
+    artists = DbInterface.select( TABLE )
     return artists.map { |a| Artist.new( a ) }
   end
 
   def self.by_id( id )
-    artists = DbArtist.select( id )
+    artists = DbInterface.select( TABLE, id )
     return Artist.new( artists.first )
   end
 
   def self.destroy( id )
-    DbArtist.delete( id )
+    DbInterface.delete( TABLE, id )
   end
 
   attr_reader( :id, :name )
@@ -25,10 +25,10 @@ class Artist
   end
 
   def save()
-    DbArtist.insert(self)
+    DbInterface.insert(TABLE, self)
   end
 
   def update()
-    DbArtist.update(self)
+    DbInterface.update(TABLE, self)
   end
 end
